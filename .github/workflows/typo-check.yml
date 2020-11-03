@@ -1,0 +1,17 @@
+name: check-init-project
+
+on: [pull_request]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+    - name: Run test task
+      run: ./gradlew test
+    - name: Check AppTest executed
+      run: grep -F 'AppTest' -r build/reports/tests/test
