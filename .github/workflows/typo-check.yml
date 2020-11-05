@@ -14,4 +14,4 @@ jobs:
     - name: Run test task
       run: ./gradlew test
     - name: Check AppTest executed
-      run: grep -F 'AppTest' -r build/reports/tests/test
+      run: grep -F 'AppTest' -r build/reports/tests/test || grep -F 'AppTest' -r app/build/reports/tests/test
